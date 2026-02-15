@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / Build
+build/
+dist/
+*.spec
+release/
+*.zip
+*.exe
+
+# Virtual Environments
+venv/
+env/
+.env
+.venv/
+
+# IDE Settings
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Local/User config (Optional: uncomment if you want to keep your config private)
+# config.json

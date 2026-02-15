@@ -1,0 +1,39 @@
+{
+    "discord": {
+        "client_id": "1472496534300921961",
+        "small_image": "strinova_logo",
+        "large_text": "Strinova"
+    },
+    "display_options": {
+        "show_character": true,
+        "show_timer": true,
+        "show_game_mode": true
+    },
+    "screenshot": {
+        "interval_seconds": 5,
+        "window_title": "Strinova"
+    },
+    "ocr": {
+        "confidence_threshold": 0.6,
+        "tesseract_path": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+    },
+    "match": {
+        "round_duration_seconds": 120,
+        "max_rounds": 13,
+        "objective_verification_count": 3
+    },
+    "regions": {
+        "weapon_name": {
+            "left": 0.835,
+            "top": 0.961,
+            "right": 0.90,
+            "bottom": 0.98
+        },
+        "match_info": {
+            "left": 0.425,
+            "top": 0.027,
+            "right": 0.575,
+            "bottom": 0.091
+        }
+    }
+}

@@ -1,0 +1,61 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build Executable
+        run: |
+          pyinstaller --clean --onefile --console --name "StrinovaRPC" main.py
+
+      - name: Prepare Release Artifacts
+        run: |
+          mkdir release
+          copy dist\StrinovaRPC.exe release\
+          copy config.json release\
+          copy character_weapon_map.json release\
+          copy character_icons.json release\
+          copy README.md release\
+
+      - name: Zip Release Artifacts
+        shell: powershell
+        run: |
+          Compress-Archive -Path release\* -DestinationPath StrinovaRPC.zip
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: StrinovaRPC-Build
+          path: release/
+
+      - name: Release to GitHub
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: StrinovaRPC.zip
+          generate_release_notes: true
