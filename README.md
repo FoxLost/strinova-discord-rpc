@@ -2,7 +2,7 @@
 
 A Python application that displays your current **Strinova** character and match status on Discord Rich Presence by reading weapon names from game screenshots via OCR.
 
-![Strinova Discord RPC Demo](https://placehold.co/600x400?text=Strinova+Discord+RPC+Screenshot)
+![screenshot](demo.png)
 
 ## Features
 
@@ -13,6 +13,9 @@ A Python application that displays your current **Strinova** character and match
 - **Standalone**: Can be run as a portable `.exe` or Python script.
 
 ## Setup
+
+If you Lazy, Just go to Releases -> download .zip -> extrack -> Run .exe
+Check the source code if you cannot trust me before running the script.
 
 ### Prerequisites
 
@@ -63,7 +66,3 @@ build.bat
 
 -   **Character not updating?** Check `config.json` → `regions.weapon_name` coordinates. If your resolution is different, take a screenshot and measure the fractional coordinates (0.0 to 1.0).
 -   **Tesseract Error?** Ensure `tesseract_path` in `config.json` points to the correct executable.
-
-## License
-
-MIT License
